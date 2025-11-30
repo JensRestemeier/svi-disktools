@@ -107,7 +107,7 @@ def convertCasToDsk(casPath : str, dskPath : str, bootloaderPath : str):
         dskPath = os.path.splitext(casPath)[0] + ".dsk"
 
     if bootloaderPath == None:
-        bootloaderPath = "boot-diskbasic.bin"
+        bootloaderPath = "loader-diskbasic.bin"
 
     # split tape into files
     files = []
