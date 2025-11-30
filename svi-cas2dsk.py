@@ -168,12 +168,13 @@ def convertCasToDsk(casPath : str, dskPath : str, bootloaderPath : str):
         track = allocTrack(fat)
         fsType = 0 # binary
         if filetype == 0xEA and attribute == 0xFF:
-            fsType = 0x81 # ascii basic program
+            fsType = 0x81 # ascii basic program/sequential file
         elif filetype == 0xD3:
             if attribute == 0xFF:
                 fsType = 0x80 # tokenised basic progream
             elif attribute in [0,1,2]:
                 fsType = 0xA0 # screen file
+                filedata = bytes([attribute]) + filedata # add the screen mode
         elif isBinary(filedata):
             fsType = 0x41
         struct.pack_into("<6s3sBB", fs, count * 16, name, "   ".encode("ascii"), fsType, track)
