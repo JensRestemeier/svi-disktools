@@ -53,7 +53,7 @@ options:
   --bootloader [BOOTLOADER]
                         Optionally override the bootloader to use.
 ```
-By default it will look for "boot-diskbasic.bin" in the current directory to write into the disk image. You can change the path with the `--bootloader` option. If no bootloader is found the disk will not be bootable, and you have to boot from a different diskbasic disk before you can use it!
+By default it will look for "loader-diskbasic.bin" in the current directory to write into the disk image. You can change the path with the `--bootloader` option. If no bootloader is found the disk will not be bootable, and you have to boot from a different diskbasic disk before you can use it!
 > [!IMPORTANT]  
 > This will NOT fix any loader to load data from disk instead of cassette! In the simplest case you can just change the path in `bload` commands to include the disk device,
 > in assembly loaders you will have to reverse-engineer and reimplement it!
